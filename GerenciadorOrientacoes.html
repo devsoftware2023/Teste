@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Orientações Médicas</title>
+    <!-- Select2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Gerenciamento de Orientações Médicas</h1>
+        
+        <!-- Formulário para criação de orientação -->
+        <form id="form-orientacao" class="mb-4">
+            <div class="form-group">
+                <label for="titulo">Título da Orientação</label>
+                <input type="text" id="titulo" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="conteudo">Conteúdo da Orientação</label>
+                <textarea id="conteudo" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tipo_cancer">Tipologia do Câncer</label>
+                <select id="tipo_cancer" class="form-control" required>
+                    <option value="">Selecione um tipo</option>
+                    <option value="Câncer de Mama">Câncer de Mama</option>
+                    <option value="Câncer de Pulmão">Câncer de Pulmão</option>
+                    <option value="Câncer de Próstata">Câncer de Próstata</option>
+                    <option value="Câncer Colorretal">Câncer Colorretal</option>
+                    <option value="Melanoma">Melanoma</option>
+                </select>
+                <input type="text" id="nova-tipologia" class="form-control mt-2" placeholder="Adicionar nova tipologia">
+                <button id="adicionar-tipologia" class="btn btn-primary mt-2">Adicionar Tipologia</button>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" class="form-control" required>
+                    <option value="">Selecione uma categoria</option>
+                    <option value="Prevenção">Prevenção</option>
+                    <option value="Diagnóstico">Diagnóstico</option>
+                    <option value="Tratamento">Tratamento</option>
+                    <option value="Cuidados Pós-Tratamento">Cuidados Pós-Tratamento</option>
+                </select>
+                <input type="text" id="nova-categoria" class="form-control mt-2" placeholder="Adicionar nova categoria">
+                <button id="adicionar-categoria" class="btn btn-primary mt-2">Adicionar Categoria</button>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select id="tags" name="tags" multiple="multiple" style="width: 100%;"> 
+                    <option value="Alimentação">Alimentação</option>
+                    <option value="Câncer de mama">Câncer de mama</option>
+                    <option value="Tratamento">Tratamento</option>
+                    <option value="Repouso">Repouso</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="anexo">Anexar Arquivos</label>
+                <input type="file" id="anexo" class="form-control-file" multiple>
+            </div>
+            <button type="submit" class="btn btn-success">Salvar Orientação</button>
+        </form>
+
+        <!-- Campo de pesquisa por tag com botão de pesquisa -->
+        <div class="form-group">
+            <label for="pesquisa-tag">Pesquisar por Tag</label>
+            <div class="input-group">
+                <input type="text" id="pesquisa-tag" class="form-control" placeholder="Digite a tag para pesquisa">
+                <div class="input-group-append">
+                    <button id="botao-pesquisar" class="btn btn-primary">Pesquisar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de orientações -->
+        <div id="lista-orientacoes" class="list-group mt-5"></div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
